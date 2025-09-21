@@ -170,7 +170,7 @@ export default function Home() {
             placeholder="Paste URL here..."
             value={inputUrl}
             onChange={(e) => setInputUrl(e.target.value)}
-            className="min-h-[120px] resize-none text-lg"
+            className="h-[120px] max-h-[120px] resize-none text-lg overflow-y-auto"
           />
 
           <div className="flex gap-4">
