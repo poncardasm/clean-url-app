@@ -93,7 +93,7 @@ function cleanUrl(url: string): string {
     }
 
     return urlObj.toString();
-  } catch (error) {
+  } catch {
     // If URL is invalid, return original string
     return url;
   }

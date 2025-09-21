@@ -17,13 +17,13 @@ export const siteConfig = {
     "Link simplifier",
     "Privacy tool",
     "URL utility",
-  ],
+  ] as string[],
   authors: [
     {
       name: "Clean URL Team",
       url: "https://cleanurl.com",
     },
-  ],
+  ] as const satisfies Array<{ name: string; url: string }>,
   creator: "Clean URL Team",
   metadataBase: new URL("https://cleanurl.com"),
   openGraph: {
