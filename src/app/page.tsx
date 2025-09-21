@@ -222,7 +222,7 @@ export default function Home() {
         {/* Footer */}
         <div className="text-center text-sm text-muted-foreground">
           <p>
-            By <span className="font-medium">Michael Poncardas</span> | Source code{" "}
+            By <span className="font-medium">Mchael Poncardas</span> | Source code{" "}
             <span className="font-medium">GitHub</span>
           </p>
         </div>
