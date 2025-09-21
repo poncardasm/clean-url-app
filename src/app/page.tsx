@@ -173,10 +173,10 @@ export default function Home() {
             className="h-[120px] max-h-[120px] resize-none text-lg overflow-y-auto"
           />
 
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4">
             <Button
               onClick={handleClean}
-              className="flex-1 h-12 text-lg"
+              className="w-full sm:flex-1 h-12 text-lg"
               disabled={!inputUrl.trim()}
             >
               {buttonText}
@@ -184,7 +184,7 @@ export default function Home() {
             <Button
               onClick={handleClear}
               variant="outline"
-              className="flex-1 h-12 text-lg"
+              className="w-full sm:flex-1 h-12 text-lg"
             >
               Clear
             </Button>
@@ -211,7 +211,7 @@ export default function Home() {
               <Button
                 onClick={handleCopy}
                 variant="secondary"
-                className="absolute bottom-3 right-3 h-10 px-6 text-base"
+                className="absolute bottom-3 right-3 h-10 px-6 text-base sm:w-auto w-full sm:max-w-none max-w-[calc(100%-1.5rem)]"
               >
                 Copy
               </Button>
