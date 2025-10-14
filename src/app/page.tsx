@@ -60,6 +60,12 @@ function cleanUrl(url: string): string {
       // Reddit
       'share_id', 'context',
 
+      // Search and e-commerce tracking
+      'queryId', 'index', 'objectIDs', 'query', 'queryID', 'searchId',
+      'search_id', 'search_query', 'search_term', 'search_source',
+      'algolia', 'algoliaSource', 'algoliaQueryID',
+      'elasticSearch', 'searchQuery', 'searchTerm',
+
       // General tracking
       'source', 'medium', 'content', 'term', 'name',
       'pk_campaign', 'pk_kwd', 'pk_source', 'pk_medium',
