@@ -75,21 +75,21 @@
 
       <div class="flex flex-col sm:flex-row gap-4">
         <Button
-          onclick={handleClean}
-          class="w-full sm:flex-1 h-12 text-lg"
-          disabled={!inputUrl.trim()}
-        >
-          {#snippet children()}
-            {buttonText}
-          {/snippet}
-        </Button>
-        <Button
           onclick={handleClear}
           variant="outline"
           class="w-full sm:flex-1 h-12 text-lg"
         >
           {#snippet children()}
             Clear
+          {/snippet}
+        </Button>
+        <Button
+          onclick={handleClean}
+          class="w-full sm:flex-1 h-12 text-lg"
+          disabled={!inputUrl.trim()}
+        >
+          {#snippet children()}
+            {buttonText}
           {/snippet}
         </Button>
       </div>
