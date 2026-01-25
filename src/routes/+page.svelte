@@ -73,14 +73,18 @@
           class="w-full sm:flex-1 h-12 text-lg"
           disabled={!inputUrl.trim()}
         >
-          {buttonText}
+          {#snippet children()}
+            {buttonText}
+          {/snippet}
         </Button>
         <Button
           onclick={handleClear}
           variant="outline"
           class="w-full sm:flex-1 h-12 text-lg"
         >
-          Clear
+          {#snippet children()}
+            Clear
+          {/snippet}
         </Button>
       </div>
 
@@ -107,7 +111,9 @@
             variant="secondary"
             class="absolute bottom-3 right-3 h-10 px-6 text-base sm:w-auto w-full sm:max-w-none max-w-[calc(100%-1.5rem)]"
           >
-            Copy
+            {#snippet children()}
+              Copy
+            {/snippet}
           </Button>
         {/if}
       </div>
