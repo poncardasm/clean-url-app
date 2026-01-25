@@ -2,6 +2,7 @@
   import { cleanUrl } from '$lib/clean-url';
   import Button from '$lib/components/ui/Button.svelte';
   import Textarea from '$lib/components/ui/Textarea.svelte';
+  import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 
   let inputUrl = $state('');
   let cleanedUrl = $state('');
@@ -50,6 +51,11 @@
 </script>
 
 <div class="min-h-screen bg-background flex flex-col items-center justify-center p-4">
+  <!-- Theme toggle in top right -->
+  <div class="absolute top-4 right-4">
+    <ThemeToggle />
+  </div>
+
   <div class="w-full max-w-2xl mx-auto space-y-8">
     <!-- Header -->
     <div class="text-center space-y-4">
