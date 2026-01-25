@@ -83,8 +83,7 @@ Temporary Items
 .Trash-*
 .nfs*
 
-# Playwright
+# Misc
 .playwright-mcp/
-
-# Claude
-.claude/
+docs/
+.ignore
