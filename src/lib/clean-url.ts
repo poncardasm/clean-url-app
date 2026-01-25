@@ -27,7 +27,7 @@ export function cleanUrl(url: string): string {
       'icid', 'igshid', 'si', 'socialshare', 'share', 'shared',
 
       // Amazon specific
-      '_encoding', 'content-id', 'dib', 'dib_tag', 'keywords',
+      '_encoding', 'content-id', 'dib', 'dib_tag', 'keywords', 'crid', 'sprefix',
       'pd_rd_r', 'pd_rd_w', 'pd_rd_wg', 'qid', 'sr', 'th',
       'pf_rd_p', 'pf_rd_r', 'pf_rd_s', 'pf_rd_t', 'pf_rd_i',
       'tag', 'linkCode', 'camp', 'creative', 'creativeASIN',
@@ -61,7 +61,7 @@ export function cleanUrl(url: string): string {
       'elasticSearch', 'searchQuery', 'searchTerm',
 
       // General tracking
-      'source', 'medium', 'content', 'term', 'name',
+      'source', 'medium', 'content', 'term',
       'pk_campaign', 'pk_kwd', 'pk_source', 'pk_medium',
       'hsCtaTracking', 'hsa_acc', 'hsa_ad', 'hsa_cam', 'hsa_grp', 'hsa_kw', 'hsa_mt', 'hsa_net', 'hsa_src', 'hsa_tgt', 'hsa_ver',
       'vero_id', 'vero_conv', '_branch_match_id', '_branch_referrer',
