@@ -128,8 +128,15 @@
     <!-- Footer -->
     <div class="text-center text-sm text-muted-foreground">
       <p>
-        By <span class="font-medium">Mchael Poncardas</span> | Source code{' '}
-        <span class="font-medium">GitHub</span>
+        By <span class="font-medium">Mchael Poncardas</span> | Source code on
+        <a
+          class="font-medium underline-offset-4 hover:underline"
+          href="https://github.com/poncardasm/clean-url-app"
+          rel="noreferrer"
+          target="_blank"
+        >
+          GitHub
+        </a>
       </p>
     </div>
   </div>
