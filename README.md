@@ -1,6 +1,6 @@
 # Clean URL App
 
-A modern web application that removes tracking parameters and cleans URLs to protect your privacy. Built with Next.js 15, React 19, and Tailwind CSS.
+A modern web application that removes tracking parameters and cleans URLs to protect your privacy. Built with SvelteKit 2, Svelte 5, and Tailwind CSS 4.
 
 ## Features
 
@@ -16,38 +16,40 @@ A modern web application that removes tracking parameters and cleans URLs to pro
 First, install dependencies and run the development server:
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Technology Stack
 
-- **Framework**: Next.js 15.5.3 with App Router
-- **React**: 19.1.0
+- **Framework**: SvelteKit 2.50.1 with Vite 7.3
+- **Svelte**: 5.48.2
 - **Styling**: Tailwind CSS 4 with CSS variables
-- **UI Components**: shadcn/ui components (New York style)
-- **Icons**: Lucide React
+- **UI Components**: Custom Svelte UI components
 - **TypeScript**: Full TypeScript setup
 
 ## Available Scripts
 
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build production version
-- `npm start` - Start production server
-- `npm run lint` - Run ESLint
+- `pnpm dev` - Start development server
+- `pnpm build` - Build production bundle
+- `pnpm preview` - Preview the production build
+- `pnpm check` - Run Svelte type checks
+- `pnpm lint` - Run ESLint
+- `pnpm test` - Run Vitest in watch mode
+- `pnpm test:run` - Run Vitest once
 
 ## Project Structure
 
 ```
 src/
-├── app/              # Next.js App Router pages and layouts
-├── components/       # React components
-│   └── ui/          # shadcn/ui components
-└── lib/             # Utility functions and configuration
+├── routes/          # SvelteKit routes and layouts
+├── lib/             # Utilities, config, and UI components
+│   └── components/  # Reusable Svelte components
+└── app.html         # App template
 ```
 
 ## Deployment
 
-See the official [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for platform-specific guidance.
+See the official [SvelteKit deployment documentation](https://kit.svelte.dev/docs/deploying) for platform-specific guidance.
