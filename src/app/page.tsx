@@ -46,7 +46,7 @@ function cleanUrl(url: string): string {
       'ref_src', 'ref_url', 's', 't', 'cn', 'refsrc',
 
       // LinkedIn
-      'trk', 'trkCampaign', 'trkInfo', 'originalSubdomain',
+      'trk', 'trkCampaign', 'trkInfo', 'originalSubdomain', 'miniProfileUrn', 'lipi',
 
       // Facebook
       'fb_action_ids', 'fb_action_types', 'fb_ref', 'fb_source',
