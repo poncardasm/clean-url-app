@@ -5,14 +5,32 @@
   import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 
   let inputUrl = $state('');
+  let copied = $state(false);
+  let copyResetTimeout: ReturnType<typeof setTimeout> | null = null;
   let cleanedUrl = $derived(
     inputUrl.trim() ? cleanUrl(inputUrl.trim()) : ''
   );
+
+  function resetCopyState() {
+    if (copyResetTimeout) {
+      clearTimeout(copyResetTimeout);
+      copyResetTimeout = null;
+    }
+    copied = false;
+  }
 
   async function handleCopy() {
     if (cleanedUrl) {
       try {
         await navigator.clipboard.writeText(cleanedUrl);
+        copied = true;
+        if (copyResetTimeout) {
+          clearTimeout(copyResetTimeout);
+        }
+        copyResetTimeout = setTimeout(() => {
+          copied = false;
+          copyResetTimeout = null;
+        }, 2000);
       } catch (err) {
         console.error('Failed to copy:', err);
       }
@@ -40,6 +58,7 @@
       <Textarea
         placeholder="Paste URL here..."
         bind:value={inputUrl}
+        oninput={resetCopyState}
         class="h-[120px] max-h-[120px] resize-none text-lg overflow-y-auto"
       />
       <div class="text-center text-sm text-muted-foreground">
@@ -61,9 +80,19 @@
           <Button
             onclick={handleCopy}
             variant="secondary"
-            class="absolute bottom-3 right-3 h-10 px-6 text-base sm:w-auto w-full sm:max-w-none max-w-[calc(100%-1.5rem)]"
+            class="absolute bottom-3 right-3 h-auto px-0 py-0 text-base leading-none sm:w-auto w-full sm:max-w-none max-w-[calc(100%-1.5rem)]"
+            aria-label={copied ? 'Copied cleaned URL' : 'Copy cleaned URL'}
           >
-            Copy
+            <span class="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/60 px-3 py-2 leading-none">
+              <img
+                src={copied ? '/icons/check.svg' : '/icons/copy.svg'}
+                alt=""
+                class="h-5 w-5"
+              />
+              <span class="text-sm font-medium">
+                {copied ? 'Copied!' : 'Copy'}
+              </span>
+            </span>
           </Button>
         {/if}
       </div>
