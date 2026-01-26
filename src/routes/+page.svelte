@@ -80,7 +80,7 @@
           <Button
             onclick={handleCopy}
             variant="secondary"
-            class="absolute bottom-3 right-3 h-auto px-0 py-0 text-base leading-none sm:w-auto w-full sm:max-w-none max-w-[calc(100%-1.5rem)]"
+            class="absolute bottom-3 right-3 h-auto px-0 py-0 text-base leading-none"
             aria-label={copied ? 'Copied cleaned URL' : 'Copy cleaned URL'}
           >
             <span class="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/60 px-3 py-2 leading-none">
