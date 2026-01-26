@@ -5,8 +5,8 @@
 	const { theme, resolvedTheme, setTheme } = themeStore;
 
 	function cycleTheme() {
-		const themes: Array<Theme> = ['light', 'dark', 'system'];
-		let currentTheme: Theme = 'system';
+		const themes: Array<Theme> = ['light', 'dark'];
+		let currentTheme: Theme = 'light';
 		const unsubscribe = theme.subscribe((value: Theme) => {
 			currentTheme = value;
 		});
@@ -20,14 +20,12 @@
 
 <Button onclick={cycleTheme} variant="outline" size="sm">
 	{#snippet children()}
-		Theme: {#if $theme === 'system'}
-			System ({$resolvedTheme})
+		{#if $resolvedTheme === 'dark'}
+			<img src="/icons/dark.svg" alt="Dark mode" class="h-4 w-4" />
+			<span class="sr-only">Dark mode</span>
 		{:else}
-			{$theme.charAt(0).toUpperCase() + $theme.slice(1)}
+			<img src="/icons/light.svg" alt="Light mode" class="h-4 w-4" />
+			<span class="sr-only">Light mode</span>
 		{/if}
 	{/snippet}
 </Button>
-
-
-
-

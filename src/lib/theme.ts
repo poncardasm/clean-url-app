@@ -1,10 +1,10 @@
 import { browser } from '$app/environment';
 import { writable, type Writable } from 'svelte/store';
 
-export type Theme = 'light' | 'dark' | 'system';
+export type Theme = 'light' | 'dark';
 
 const STORAGE_KEY = 'theme';
-const DEFAULT_THEME: Theme = 'system';
+const DEFAULT_THEME: Theme = 'light';
 
 function createThemeStore() {
 	// Use writable stores for SSR compatibility
@@ -15,7 +15,7 @@ function createThemeStore() {
 	if (browser) {
 		// Load theme from localStorage on initialization
 		const storedTheme = localStorage.getItem(STORAGE_KEY) as Theme;
-		if (storedTheme && ['light', 'dark', 'system'].includes(storedTheme)) {
+		if (storedTheme && ['light', 'dark'].includes(storedTheme)) {
 			theme.set(storedTheme);
 		}
 
@@ -24,16 +24,6 @@ function createThemeStore() {
 			updateResolvedTheme(value);
 		});
 
-		// Listen for system theme changes
-		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-		mediaQuery.addEventListener('change', () => {
-			theme.update((t) => {
-				if (t === 'system') {
-					updateResolvedTheme(t);
-				}
-				return t;
-			});
-		});
 	}
 
 	function setTheme(newTheme: Theme) {
@@ -49,16 +39,8 @@ function createThemeStore() {
 		const root = window.document.documentElement;
 		root.classList.remove('light', 'dark');
 
-		let systemTheme: 'light' | 'dark' = 'light';
-
-		if (currentTheme === 'system') {
-			systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-		} else {
-			systemTheme = currentTheme;
-		}
-
-		resolvedTheme.set(systemTheme);
-		root.classList.add(systemTheme);
+		resolvedTheme.set(currentTheme);
+		root.classList.add(currentTheme);
 	}
 
 	return {
@@ -69,4 +51,3 @@ function createThemeStore() {
 }
 
 export const themeStore = createThemeStore();
-
