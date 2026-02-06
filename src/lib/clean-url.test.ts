@@ -101,9 +101,15 @@ describe('cleanUrl', () => {
 			expect(cleanUrl(url)).toBe(expected);
 		});
 
-		it('removes Instagram tracking parameters', () => {
+		it('removes Instagram tracking parameters (igshid)', () => {
 			const url = 'https://www.instagram.com/p/ABC123/?igshid=xyz123';
 			const expected = 'https://www.instagram.com/p/ABC123/';
+			expect(cleanUrl(url)).toBe(expected);
+		});
+
+		it('removes Instagram tracking parameters (igsh)', () => {
+			const url = 'https://www.instagram.com/reel/ABC123/?igsh=xyz789';
+			const expected = 'https://www.instagram.com/reel/ABC123/';
 			expect(cleanUrl(url)).toBe(expected);
 		});
 

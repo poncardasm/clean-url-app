@@ -24,7 +24,7 @@ export function cleanUrl(url: string): string {
       '_ga', '_gl', '_gac', 'ga_source', 'ga_medium', 'ga_campaign',
 
       // Social media
-      'icid', 'igshid', 'si', 'socialshare', 'share', 'shared',
+      'icid', 'igshid', 'igsh', 'si', 'socialshare', 'share', 'shared',
 
       // Amazon specific
       '_encoding', 'content-id', 'dib', 'dib_tag', 'keywords', 'crid', 'sprefix',
