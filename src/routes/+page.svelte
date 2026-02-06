@@ -59,7 +59,7 @@
         placeholder="Paste URL here..."
         bind:value={inputUrl}
         oninput={resetCopyState}
-        class="h-[120px] max-h-[120px] resize-none text-lg overflow-y-auto"
+        class="h-30 max-h-30 resize-none text-lg overflow-y-auto"
       />
       <div class="text-center text-sm text-muted-foreground">
         Cleans automatically when you paste or edit.
@@ -73,7 +73,7 @@
         <Textarea
           value={cleanedUrl}
           readonly
-          class="min-h-[120px] resize-none bg-muted text-lg"
+          class="min-h-30 resize-none bg-muted text-lg"
           placeholder="Your cleaned URL will appear here..."
         />
         {#if cleanedUrl}

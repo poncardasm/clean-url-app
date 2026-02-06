@@ -6,7 +6,8 @@ export function cleanUrl(url: string): string {
     const trackingParams = [
       // UTM parameters
       'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
-      'utm_id', 'utm_campaign_id', 'utm_source_platform',
+      'utm_id', 'utm_campaign_id', 'utm_source_platform', 'utm_name',
+      'utm_creative_format', 'utm_marketing_tactic',
 
       // Click tracking
       'fbclid', 'gclid', 'msclkid', 'dclid', 'gbraid', 'wbraid',

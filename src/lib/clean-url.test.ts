@@ -76,14 +76,14 @@ describe('cleanUrl', () => {
 
 	describe('YouTube URLs', () => {
 		it('removes YouTube tracking parameters', () => {
-			const url = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&feature=youtu.be&si=abc123';
-			const expected = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+			const url = 'https://www.youtube.com/watch?v=abc12345678&feature=youtu.be&si=xyz789';
+			const expected = 'https://www.youtube.com/watch?v=abc12345678';
 			expect(cleanUrl(url)).toBe(expected);
 		});
 
 	it('preserves essential YouTube parameters', () => {
-		const url = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PLtest&feature=share';
-		const expected = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PLtest';
+		const url = 'https://www.youtube.com/watch?v=abc12345678&list=PLtest&feature=share';
+		const expected = 'https://www.youtube.com/watch?v=abc12345678&list=PLtest';
 		expect(cleanUrl(url)).toBe(expected);
 	});
 	});
@@ -122,6 +122,12 @@ describe('cleanUrl', () => {
 		it('removes Reddit tracking parameters', () => {
 			const url = 'https://www.reddit.com/r/test/comments/abc/?share_id=123&context=3';
 			const expected = 'https://www.reddit.com/r/test/comments/abc/';
+			expect(cleanUrl(url)).toBe(expected);
+		});
+
+		it('removes Reddit utm_name parameter', () => {
+			const url = 'https://www.reddit.com/r/test/comments/123/title/?utm_source=share&utm_medium=web&utm_name=test_name&utm_term=1&utm_content=share';
+			const expected = 'https://www.reddit.com/r/test/comments/123/title/';
 			expect(cleanUrl(url)).toBe(expected);
 		});
 	});
@@ -190,9 +196,9 @@ describe('cleanUrl', () => {
 
 	describe('Complex real-world scenarios', () => {
 	it('cleans heavily tracked Amazon product link', () => {
-		const url = 'https://www.amazon.com/Sony-Full-frame-Mirrorless-Interchangeable-Lens-ILCE7M3/dp/B07B43WPVK/ref=sr_1_3?crid=2K8RXQVP4KFYJ&keywords=sony+a7iii&qid=1234567890&sprefix=sony+a7iii%2Caps%2C123&sr=8-3&tag=affiliate-20';
+		const url = 'https://www.amazon.com/Product-Name/dp/B000000000/ref=sr_1_1?crid=ABC123&keywords=test&qid=1234567890&sprefix=test%2Caps%2C123&sr=1-1&tag=aff-20';
 		// All Amazon tracking params are removed including keywords, qid, sr, etc. - this is correct behavior
-		const expected = 'https://www.amazon.com/Sony-Full-frame-Mirrorless-Interchangeable-Lens-ILCE7M3/dp/B07B43WPVK';
+		const expected = 'https://www.amazon.com/Product-Name/dp/B000000000';
 		expect(cleanUrl(url)).toBe(expected);
 	});
 
