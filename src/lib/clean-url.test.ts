@@ -202,6 +202,12 @@ describe('cleanUrl', () => {
 		expect(cleanUrl(url)).toBe(expected);
 	});
 
+		it('removes feedId tracking parameter from job listing links', () => {
+			const url = 'https://careers.nordea.com/job/Helsinki-Join-Nordea-as-a-Summer-Trainee-in-IT-Design-Tech-2026-00500/1289426801/?feedId=451033';
+			const expected = 'https://careers.nordea.com/job/Helsinki-Join-Nordea-as-a-Summer-Trainee-in-IT-Design-Tech-2026-00500/1289426801/';
+			expect(cleanUrl(url)).toBe(expected);
+		});
+
 		it('cleans URL with mixed tracking from multiple sources', () => {
 			const url = 'https://example.com/article?utm_source=facebook&utm_medium=social&fbclid=abc123&ref=share&si=xyz';
 			const expected = 'https://example.com/article';
@@ -211,6 +217,24 @@ describe('cleanUrl', () => {
 		it('preserves important parameters while removing tracking', () => {
 			const url = 'https://shop.com/product?color=blue&size=large&utm_campaign=summer&gclid=abc';
 			const expected = 'https://shop.com/product?color=blue&size=large';
+			expect(cleanUrl(url)).toBe(expected);
+		});
+
+		it('removes tracking parameters case-insensitively', () => {
+			const url = 'https://example.com/page?FeedId=451033&LinkCode=abc&id=123';
+			const expected = 'https://example.com/page?id=123';
+			expect(cleanUrl(url)).toBe(expected);
+		});
+
+		it('removes tracking parameters by prefix patterns', () => {
+			const url = 'https://example.com/page?id=123&utm_custom=abc&hsa_test=1&mc_tracking=2';
+			const expected = 'https://example.com/page?id=123';
+			expect(cleanUrl(url)).toBe(expected);
+		});
+
+		it('removes additional ad platform identifiers', () => {
+			const url = 'https://example.com/page?li_fat_id=abc123&twclid=def456&srsltid=ghi789&sku=42';
+			const expected = 'https://example.com/page?sku=42';
 			expect(cleanUrl(url)).toBe(expected);
 		});
 	});
