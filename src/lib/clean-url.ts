@@ -16,7 +16,7 @@ export function cleanUrl(url: string): string {
       'ref', 'referrer', 'ref_', 'ref_src', 'ref_url',
 
       // Campaign tracking
-      'campaign_id', 'campaign', 'cmp', 'cmpid', 'campaign_name', 'feedid',
+      'campaign_id', 'campaign', 'cmp', 'cmpid', 'campaign_name', 'feedid', 'promotion',
 
       // Email marketing
       'mc_cid', 'mc_eid', 'ml_subscriber', 'ml_subscriber_hash', 'mkt_tok',

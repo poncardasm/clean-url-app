@@ -208,6 +208,12 @@ describe('cleanUrl', () => {
 			expect(cleanUrl(url)).toBe(expected);
 		});
 
+		it('removes promotion tracking parameter from job share links', () => {
+			const url = 'https://careers.ictdirect.io/jobs/7052735-it-specialist-junior?promotion=1789777-trackable-share-link-it-specialist-junior-linkedin';
+			const expected = 'https://careers.ictdirect.io/jobs/7052735-it-specialist-junior';
+			expect(cleanUrl(url)).toBe(expected);
+		});
+
 		it('cleans URL with mixed tracking from multiple sources', () => {
 			const url = 'https://example.com/article?utm_source=facebook&utm_medium=social&fbclid=abc123&ref=share&si=xyz';
 			const expected = 'https://example.com/article';
